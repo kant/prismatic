@@ -36,7 +36,8 @@
 
 
 <meta property="og:title" content="Transform colors to greyscale — clr_grayscale" />
-<meta property="og:description" content="Transform colors to greyscale" />
+<meta property="og:description" content="This function has a selection of different methods to turn colors into
+grayscale." />
 <meta name="twitter:card" content="summary" />
 
 
@@ -111,10 +112,12 @@
     </div>
 
     <div class="ref-description">
-    <p>Transform colors to greyscale</p>
+    <p>This function has a selection of different methods to turn colors into
+grayscale.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>clr_grayscale</span>(<span class='no'>col</span>)</pre>
+    <pre class="usage"><span class='fu'>clr_grayscale</span>(<span class='no'>col</span>, <span class='kw'>method</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"luma"</span>, <span class='st'>"averaging"</span>, <span class='st'>"min_decomp"</span>,
+  <span class='st'>"max_decomp"</span>, <span class='st'>"red_channel"</span>, <span class='st'>"green_channel"</span>, <span class='st'>"blue_channel"</span>))</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -126,23 +129,49 @@ specifications, i.e., either a color name (as listed by colors()), a
 hexadecimal string of the form "#rrggbb" or "#rrggbbaa" (see rgb), or a
 positive integer i meaning palette()[i].</p></td>
     </tr>
+    <tr>
+      <th>method</th>
+      <td><p>character string specifying the grayscaling method. Can be one
+of "luma", "averaging", "min_decomp",  "max_decomp", "red_channel",
+"green_channel" and "blue_channel". Defaults to "luma".</p></td>
+    </tr>
     </table>
 
+    <h2 class="hasAnchor" id="source"><a class="anchor" href="#source"></a>Source</h2>
+
+    <p><a href='https://www.tannerhelland.com/3643/grayscale-image-algorithm-vb6/'>https://www.tannerhelland.com/3643/grayscale-image-algorithm-vb6/</a></p>
+<p><a href='https://en.wikipedia.org/wiki/Luma'>https://en.wikipedia.org/wiki/Luma</a></p>
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
     <p>a color object of same length as col.</p>
+    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
+
+    <p>if method = "averaging" then the red, green and blue have been
+averaged together to create the grey value. This method does a poor job of
+representing the way the  human eye sees color.
+If method = "luma" (the default) then then a weighted average is used to
+calculate the grayscale values. The BT. 709 method from the ITU
+Radiocommunication Sector have determined the weights.
+It method = "min_decomp" or method = "max_decomp", then a decomposition
+method is used where the minimum or maximum color value have been selected
+for the color value. So the color rgb(60, 120, 40) would have the min_decomp
+value of 40 and max_decomp value of 120.
+If method is "red_channel", "green_channel" or "blue_channel", then the
+corresponding color channel been selected for the values of grayscale.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'>
 <span class='fu'><a href='https://rdrr.io/r/graphics/plot.html'>plot</a></span>(<span class='fu'>clr_grayscale</span>(<span class='fu'><a href='https://rdrr.io/r/grDevices/palettes.html'>rainbow</a></span>(<span class='fl'>10</span>)))</div><div class='img'><img src='clr_grayscale-1.png' alt='' width='700' height='433' /></div><div class='input'>
 <span class='fu'><a href='https://rdrr.io/r/graphics/plot.html'>plot</a></span>(<span class='fu'>clr_grayscale</span>(<span class='fu'><a href='https://rdrr.io/r/grDevices/palettes.html'>terrain.colors</a></span>(<span class='fl'>10</span>)))</div><div class='img'><img src='clr_grayscale-2.png' alt='' width='700' height='433' /></div><div class='input'>
-<span class='fu'><a href='https://rdrr.io/r/graphics/plot.html'>plot</a></span>(<span class='fu'>clr_grayscale</span>(<span class='fu'><a href='https://rdrr.io/r/grDevices/palettes.html'>hcl.colors</a></span>(<span class='fl'>10</span>, <span class='kw'>palette</span> <span class='kw'>=</span> <span class='st'>"viridis"</span>)))</div><div class='img'><img src='clr_grayscale-3.png' alt='' width='700' height='433' /></div></pre>
+<span class='fu'><a href='https://rdrr.io/r/graphics/plot.html'>plot</a></span>(<span class='fu'>clr_grayscale</span>(<span class='fu'><a href='https://rdrr.io/r/grDevices/palettes.html'>hcl.colors</a></span>(<span class='fl'>10</span>), <span class='kw'>method</span> <span class='kw'>=</span> <span class='st'>"luma"</span>))</div><div class='img'><img src='clr_grayscale-3.png' alt='' width='700' height='433' /></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/graphics/plot.html'>plot</a></span>(<span class='fu'>clr_grayscale</span>(<span class='fu'><a href='https://rdrr.io/r/grDevices/palettes.html'>hcl.colors</a></span>(<span class='fl'>10</span>), <span class='kw'>method</span> <span class='kw'>=</span> <span class='st'>"averaging"</span>))</div><div class='img'><img src='clr_grayscale-4.png' alt='' width='700' height='433' /></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/graphics/plot.html'>plot</a></span>(<span class='fu'>clr_grayscale</span>(<span class='fu'><a href='https://rdrr.io/r/grDevices/palettes.html'>hcl.colors</a></span>(<span class='fl'>10</span>), <span class='kw'>method</span> <span class='kw'>=</span> <span class='st'>"min_decomp"</span>))</div><div class='img'><img src='clr_grayscale-5.png' alt='' width='700' height='433' /></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/graphics/plot.html'>plot</a></span>(<span class='fu'>clr_grayscale</span>(<span class='fu'><a href='https://rdrr.io/r/grDevices/palettes.html'>hcl.colors</a></span>(<span class='fl'>10</span>), <span class='kw'>method</span> <span class='kw'>=</span> <span class='st'>"max_decomp"</span>))</div><div class='img'><img src='clr_grayscale-6.png' alt='' width='700' height='433' /></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/graphics/plot.html'>plot</a></span>(<span class='fu'>clr_grayscale</span>(<span class='fu'><a href='https://rdrr.io/r/grDevices/palettes.html'>hcl.colors</a></span>(<span class='fl'>10</span>), <span class='kw'>method</span> <span class='kw'>=</span> <span class='st'>"red_channel"</span>))</div><div class='img'><img src='clr_grayscale-7.png' alt='' width='700' height='433' /></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/graphics/plot.html'>plot</a></span>(<span class='fu'>clr_grayscale</span>(<span class='fu'><a href='https://rdrr.io/r/grDevices/palettes.html'>hcl.colors</a></span>(<span class='fl'>10</span>), <span class='kw'>method</span> <span class='kw'>=</span> <span class='st'>"green_channel"</span>))</div><div class='img'><img src='clr_grayscale-8.png' alt='' width='700' height='433' /></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/graphics/plot.html'>plot</a></span>(<span class='fu'>clr_grayscale</span>(<span class='fu'><a href='https://rdrr.io/r/grDevices/palettes.html'>hcl.colors</a></span>(<span class='fl'>10</span>), <span class='kw'>method</span> <span class='kw'>=</span> <span class='st'>"blue_channel"</span>))</div><div class='img'><img src='clr_grayscale-9.png' alt='' width='700' height='433' /></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>
+      <li><a href="#source">Source</a></li>
       <li><a href="#value">Value</a></li>
+      <li><a href="#details">Details</a></li>
       <li><a href="#examples">Examples</a></li>
     </ul>
 
