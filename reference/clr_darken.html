@@ -122,7 +122,7 @@
     <p>Make a color more dark</p>
     </div>
 
-    <pre class="usage"><span class='fu'>clr_darken</span>(<span class='no'>col</span>, <span class='kw'>shift</span> <span class='kw'>=</span> <span class='fl'>0.5</span>)</pre>
+    <pre class="usage"><span class='fu'>clr_darken</span>(<span class='no'>col</span>, <span class='kw'>shift</span> <span class='kw'>=</span> <span class='fl'>0.5</span>, <span class='kw'>space</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"HSL"</span>))</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -139,11 +139,18 @@ positive integer i meaning palette()[i].</p></td>
       <td><p>Numeric between 0 and 1, 0 will do zero darkening, 1 will do
 complete darkening turning the color to black. Defaults to 0.5.</p></td>
     </tr>
+    <tr>
+      <th>space</th>
+      <td><p>character string specifying the color space in which adjustment
+happens. Can be either "HLS", "HCL" or "combined". Defaults to "HSL".</p></td>
+    </tr>
     </table>
 
     <h2 class="hasAnchor" id="source"><a class="anchor" href="#source"></a>Source</h2>
 
     <p><a href='https://en.wikipedia.org/wiki/HSL_and_HSV'>https://en.wikipedia.org/wiki/HSL_and_HSV</a></p>
+<p><a href='https://en.wikipedia.org/wiki/CIELUV'>https://en.wikipedia.org/wiki/CIELUV</a></p>
+<p><a href='https://arxiv.org/abs/1903.06490'>https://arxiv.org/abs/1903.06490</a></p>
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
     <p>a color object of same length as col.</p>
@@ -156,6 +163,15 @@ complete darkening turning the color to black. Defaults to 0.5.</p></td>
  means that the lightness stays unchanged and 1 means completely black. As an
  example, if the lightness of the color is 0.6 and shift is 0.5, then the
  lightness be set to the halfway point between 0.6 and 0, which is 0.3.</p>
+<p>If space = "HSL" then the colors are transformed to HSL space where
+  the lightness value L is adjusted. If space = "HCL" then the colors are
+  transformed to Cylindrical HCL space where the luminance value L is
+  adjusted. If space = "combined" then the colors are tranformed into HSL and
+  Cylindrical HCL space. Where the color adjusting is happening HLS is copied
+  tto the values in the HCL tranformation. Thus the "combined" transformation
+  adjusts the luminance in HCL space and chroma in HSL space. For more
+  information regarding use of color spaces, please refer to eh colorspace
+  paper <a href='https://arxiv.org/abs/1903.06490'>https://arxiv.org/abs/1903.06490</a>.</p>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
     <div class='dont-index'><p>clr_lighten</p></div>

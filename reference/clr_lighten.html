@@ -122,7 +122,7 @@
     <p>Make a color more light</p>
     </div>
 
-    <pre class="usage"><span class='fu'>clr_lighten</span>(<span class='no'>col</span>, <span class='kw'>shift</span> <span class='kw'>=</span> <span class='fl'>0.5</span>)</pre>
+    <pre class="usage"><span class='fu'>clr_lighten</span>(<span class='no'>col</span>, <span class='kw'>shift</span> <span class='kw'>=</span> <span class='fl'>0.5</span>, <span class='kw'>space</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"HSL"</span>, <span class='st'>"HCL"</span>, <span class='st'>"combined"</span>))</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -139,11 +139,18 @@ positive integer i meaning palette()[i].</p></td>
       <td><p>Numeric between 0 and 1, 0 will do zero lightening, 1 will do
 complete lightening turning the color to white. Defaults to 0.5.</p></td>
     </tr>
+    <tr>
+      <th>space</th>
+      <td><p>character string specifying the color space in which adjustment
+happens. Can be either "HLS", "HCL" or "combined". Defaults to "HSL".</p></td>
+    </tr>
     </table>
 
     <h2 class="hasAnchor" id="source"><a class="anchor" href="#source"></a>Source</h2>
 
     <p><a href='https://en.wikipedia.org/wiki/HSL_and_HSV'>https://en.wikipedia.org/wiki/HSL_and_HSV</a></p>
+<p><a href='https://en.wikipedia.org/wiki/CIELUV'>https://en.wikipedia.org/wiki/CIELUV</a></p>
+<p><a href='https://arxiv.org/abs/1903.06490'>https://arxiv.org/abs/1903.06490</a></p>
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
     <p>a color object of same length as col.</p>
@@ -156,15 +163,24 @@ complete lightening turning the color to white. Defaults to 0.5.</p></td>
  means that the lightness stays unchanged and 1 means completely white. As an
  example, if the lightness of the color is 0.6 and shift is 0.5, then the
  lightness be set to the halfway point between 0.6 and 1 which is 0.8.</p>
+<p>If space = "HSL" then the colors are transformed to HSL space where
+  the lightness value L is adjusted. If space = "HCL" then the colors are
+  transformed to Cylindrical HCL space where the luminance value L is
+  adjusted. If space = "combined" then the colors are tranformed into HSL and
+  Cylindrical HCL space. Where the color adjusting is happening HLS is copied
+  tto the values in the HCL tranformation. Thus the "combined" transformation
+  adjusts the luminance in HCL space and chroma in HSL space. For more
+  information regarding use of color spaces, please refer to eh colorspace
+  paper <a href='https://arxiv.org/abs/1903.06490'>https://arxiv.org/abs/1903.06490</a>.</p>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
     <div class='dont-index'><p>clr_darken</p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='co'># Using linear shift</span>
-<span class='fu'><a href='https://rdrr.io/r/graphics/plot.html'>plot</a></span>(<span class='fu'>clr_lighten</span>(<span class='fu'><a href='https://rdrr.io/r/base/rep.html'>rep</a></span>(<span class='st'>"red"</span>, <span class='fl'>11</span>), <span class='kw'>shift</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/seq.html'>seq</a></span>(<span class='fl'>0</span>, <span class='fl'>1</span>, <span class='fl'>0.1</span>)))</div><div class='img'><img src='clr_lighten-1.png' alt='' width='700' height='433' /></div><div class='input'>
+<span class='fu'><a href='https://rdrr.io/r/graphics/plot.html'>plot</a></span>(<span class='fu'>clr_lighten</span>(<span class='fu'><a href='https://rdrr.io/r/base/rep.html'>rep</a></span>(<span class='st'>"red"</span>, <span class='fl'>11</span>), <span class='kw'>shift</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/seq.html'>seq</a></span>(<span class='fl'>0</span>, <span class='fl'>1</span>, <span class='fl'>0.1</span>)))</div><div class='img'><img src='clr_lighten-1.png' alt='' width='700' height='433' /></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/graphics/plot.html'>plot</a></span>(<span class='fu'>clr_lighten</span>(<span class='fu'><a href='https://rdrr.io/r/base/rep.html'>rep</a></span>(<span class='st'>"red"</span>, <span class='fl'>11</span>), <span class='kw'>shift</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/seq.html'>seq</a></span>(<span class='fl'>0</span>, <span class='fl'>1</span>, <span class='fl'>0.1</span>), <span class='kw'>space</span> <span class='kw'>=</span> <span class='st'>"HCL"</span>))</div><div class='img'><img src='clr_lighten-2.png' alt='' width='700' height='433' /></div><div class='input'>
 <span class='co'># Using exponential shifts</span>
-<span class='fu'><a href='https://rdrr.io/r/graphics/plot.html'>plot</a></span>(<span class='fu'>clr_lighten</span>(<span class='fu'><a href='https://rdrr.io/r/base/rep.html'>rep</a></span>(<span class='st'>"red"</span>, <span class='fl'>11</span>), <span class='kw'>shift</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/Log.html'>log</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/seq.html'>seq</a></span>(<span class='fl'>1</span>, <span class='fu'><a href='https://rdrr.io/r/base/Log.html'>exp</a></span>(<span class='fl'>1</span>), <span class='kw'>length.out</span> <span class='kw'>=</span> <span class='fl'>11</span>))))</div><div class='img'><img src='clr_lighten-2.png' alt='' width='700' height='433' /></div></pre>
+<span class='fu'><a href='https://rdrr.io/r/graphics/plot.html'>plot</a></span>(<span class='fu'>clr_lighten</span>(<span class='fu'><a href='https://rdrr.io/r/base/rep.html'>rep</a></span>(<span class='st'>"red"</span>, <span class='fl'>11</span>), <span class='kw'>shift</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/Log.html'>log</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/seq.html'>seq</a></span>(<span class='fl'>1</span>, <span class='fu'><a href='https://rdrr.io/r/base/Log.html'>exp</a></span>(<span class='fl'>1</span>), <span class='kw'>length.out</span> <span class='kw'>=</span> <span class='fl'>11</span>))))</div><div class='img'><img src='clr_lighten-3.png' alt='' width='700' height='433' /></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
