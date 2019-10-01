@@ -138,7 +138,7 @@ positive integer i meaning palette()[i].</p></td>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>a color object of same length as col.</p>
+    <p>a colors object of same length as col.</p>
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
     <p>The negation of color is happening in the red-green-blue colorspace
@@ -149,8 +149,8 @@ from 0 to 255, leaving us wih rgb(0, 90, 255) which is a shade of blue.</p>
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='no'>terr</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='color.html'>color</a></span>(<span class='fu'><a href='https://rdrr.io/r/grDevices/palettes.html'>terrain.colors</a></span>(<span class='fl'>10</span>))
 
-<span class='no'>terr</span></div><div class='output co'>#&gt; &lt;color&gt;
-#&gt; #00A600FF #2DB600FF #63C600FF #A0D600FF #E6E600FF #E8C32EFF #EBB25EFF #EDB48EFF #F0C9C0FF #F2F2F2FF </div><div class='input'><span class='fu'>clr_negate</span>(<span class='no'>terr</span>)</div><div class='output co'>#&gt; &lt;color&gt;
+<span class='no'>terr</span></div><div class='output co'>#&gt; &lt;colors&gt;
+#&gt; #00A600FF #2DB600FF #63C600FF #A0D600FF #E6E600FF #E8C32EFF #EBB25EFF #EDB48EFF #F0C9C0FF #F2F2F2FF </div><div class='input'><span class='fu'>clr_negate</span>(<span class='no'>terr</span>)</div><div class='output co'>#&gt; &lt;colors&gt;
 #&gt; #FF59FFFF #D249FFFF #9C39FFFF #5F29FFFF #1919FFFF #173CD1FF #144DA1FF #124B71FF #0F363FFF #0D0D0DFF </div><div class='input'>
 <span class='fu'><a href='https://rdrr.io/r/graphics/plot.html'>plot</a></span>(<span class='no'>terr</span>)</div><div class='img'><img src='clr_negate-1.png' alt='' width='700' height='433' /></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/graphics/plot.html'>plot</a></span>(<span class='fu'>clr_negate</span>(<span class='no'>terr</span>))</div><div class='img'><img src='clr_negate-2.png' alt='' width='700' height='433' /></div></pre>
   </div>
