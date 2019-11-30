@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Changelog • prismatic</title>
+<title>Visualize color vision deficiency — check_color_blindness • prismatic</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -42,7 +42,8 @@
 
 
 
-<meta property="og:title" content="Changelog" />
+<meta property="og:title" content="Visualize color vision deficiency — check_color_blindness" />
+<meta property="og:description" content="Visualize color vision deficiency" />
 <meta property="og:image" content="/logo.png" />
 <meta name="twitter:card" content="summary" />
 
@@ -63,7 +64,7 @@
   </head>
 
   <body>
-    <div class="container template-news">
+    <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -115,44 +116,48 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-      <h1>Changelog <small></small></h1>
-      <small>Source: <a href='https://github.com/EmilHvitfeldt/prismatic/blob/master/NEWS.md'><code>NEWS.md</code></a></small>
+    <h1>Visualize color vision deficiency</h1>
+    <small class="dont-index">Source: <a href='https://github.com/EmilHvitfeldt/prismatic/blob/master/R/color-blindness.R'><code>R/color-blindness.R</code></a></small>
+    <div class="hidden name"><code>check_color_blindness.Rd</code></div>
     </div>
 
-    <div id="prismatic-development-version" class="section level1">
-<h1 class="page-header">
-<a href="#prismatic-development-version" class="anchor"></a>prismatic (development version)<small> Unreleased </small>
-</h1>
-<ul>
-<li>Added <code><a href="../reference/clr_alpha.html">clr_alpha()</a></code> function to specify transparency. (<a href='https://github.com/EmilHvitfeldt/prismatic/issues/9'>#9</a>)</li>
-<li>Added <code>labels</code> argument to <code>plot.colors()</code> to show hexcode in plot. (<a href='https://github.com/EmilHvitfeldt/prismatic/issues/8'>#8</a>)</li>
-<li>
-<code><a href="../reference/clr_rotate.html">clr_rotate()</a></code>’s argument <code>degrees</code> now default to 0.</li>
-<li>
-<code><a href="../reference/clr_mix.html">clr_mix()</a></code>’s argument <code>ratio</code> now correctly takes varied lengths as the argument.</li>
-<li>added <code><a href="../reference/check_color_blindness.html">check_color_blindness()</a></code> to allow quick visual color deficiency examination. (<a href='https://github.com/EmilHvitfeldt/prismatic/issues/11'>#11</a>)</li>
-</ul>
-</div>
-    <div id="prismatic-0-1-0" class="section level1">
-<h1 class="page-header">
-<a href="#prismatic-0-1-0" class="anchor"></a>prismatic 0.1.0<small> 2019-10-06 </small>
-</h1>
-<ul>
-<li>Release on CRAN</li>
-</ul>
-</div>
-  </div>
+    <div class="ref-description">
+    <p>Visualize color vision deficiency</p>
+    </div>
 
+    <pre class="usage"><span class='fu'>check_color_blindness</span>(<span class='no'>col</span>)</pre>
+
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>col</th>
+      <td><p>a color object or vector of any of the three kinds of R color
+specifications, i.e., either a color name (as listed by colors()), a
+hexadecimal string of the form "#rrggbb" or "#rrggbbaa" (see rgb), or a
+positive integer i meaning palette()[i].</p>
+<p>This function will showcase the effect of all 3 kinds of color vision
+deficiency at the same time side by side.</p></td>
+    </tr>
+    </table>
+
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
+
+    <p>Nothing</p>
+
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><div class='input'><span class='fu'>check_color_blindness</span>(<span class='fu'><a href='https://rdrr.io/r/grDevices/palettes.html'>rainbow</a></span>(<span class='fl'>10</span>))</div><div class='img'><img src='check_color_blindness-1.png' alt='' width='700' height='433' /></div><div class='input'>
+<span class='fu'>check_color_blindness</span>(<span class='fu'><a href='https://rdrr.io/r/grDevices/palettes.html'>terrain.colors</a></span>(<span class='fl'>10</span>))</div><div class='img'><img src='check_color_blindness-2.png' alt='' width='700' height='433' /></div></pre>
+  </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
-    <div id="tocnav">
-      <h2>Contents</h2>
-      <ul class="nav nav-pills nav-stacked">
-        <li><a href="#prismatic-development-version">development version</a></li>
-        <li><a href="#prismatic-0-1-0">0.1.0</a></li>
-      </ul>
-    </div>
-  </div>
+    <h2>Contents</h2>
+    <ul class="nav nav-pills nav-stacked">
+      <li><a href="#arguments">Arguments</a></li>
+      <li><a href="#value">Value</a></li>
+      <li><a href="#examples">Examples</a></li>
+    </ul>
 
+  </div>
 </div>
 
 
