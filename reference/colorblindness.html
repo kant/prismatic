@@ -77,7 +77,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">prismatic</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.0.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.0</span>
       </span>
     </div>
 
@@ -170,7 +170,9 @@ between 0 and 1. 0 means no deficiency, 1 means complete deficiency. Defaults
     <pre class="examples"><div class='input'><span class='no'>rainbow_colors</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='color.html'>color</a></span>(<span class='fu'><a href='https://rdrr.io/r/grDevices/palettes.html'>rainbow</a></span>(<span class='fl'>10</span>))
 
 <span class='fu'><a href='https://rdrr.io/r/graphics/plot.html'>plot</a></span>(<span class='fu'>clr_protan</span>(<span class='no'>rainbow_colors</span>))</div><div class='img'><img src='colorblindness-1.png' alt='' width='700' height='433' /></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/graphics/plot.html'>plot</a></span>(<span class='fu'>clr_deutan</span>(<span class='no'>rainbow_colors</span>))</div><div class='img'><img src='colorblindness-2.png' alt='' width='700' height='433' /></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/graphics/plot.html'>plot</a></span>(<span class='fu'>clr_tritan</span>(<span class='no'>rainbow_colors</span>))</div><div class='img'><img src='colorblindness-3.png' alt='' width='700' height='433' /></div><div class='input'>
-<span class='no'>viridis_colors</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='color.html'>color</a></span>(<span class='fu'><a href='https://rdrr.io/r/grDevices/palettes.html'>hcl.colors</a></span>(<span class='fl'>10</span>, <span class='kw'>palette</span> <span class='kw'>=</span> <span class='st'>"viridis"</span>))
+<span class='no'>viridis_colors</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"#4B0055FF"</span>, <span class='st'>"#422C70FF"</span>, <span class='st'>"#185086FF"</span>, <span class='st'>"#007094FF"</span>,
+                    <span class='st'>"#008E98FF"</span>, <span class='st'>"#00A890FF"</span>, <span class='st'>"#00BE7DFF"</span>, <span class='st'>"#6CD05EFF"</span>,
+                    <span class='st'>"#BBDD38FF"</span>, <span class='st'>"#FDE333FF"</span>)
 
 <span class='fu'><a href='https://rdrr.io/r/graphics/plot.html'>plot</a></span>(<span class='fu'>clr_protan</span>(<span class='no'>viridis_colors</span>))</div><div class='img'><img src='colorblindness-4.png' alt='' width='700' height='433' /></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/graphics/plot.html'>plot</a></span>(<span class='fu'>clr_deutan</span>(<span class='no'>viridis_colors</span>))</div><div class='img'><img src='colorblindness-5.png' alt='' width='700' height='433' /></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/graphics/plot.html'>plot</a></span>(<span class='fu'>clr_tritan</span>(<span class='no'>viridis_colors</span>))</div><div class='img'><img src='colorblindness-6.png' alt='' width='700' height='433' /></div></pre>
   </div>
