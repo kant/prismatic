@@ -125,7 +125,7 @@
     <p>Rotate the colors around the hue wheel</p>
     </div>
 
-    <pre class="usage"><span class='fu'>clr_rotate</span>(<span class='no'>col</span>, <span class='no'>degrees</span>)</pre>
+    <pre class="usage"><span class='fu'>clr_rotate</span>(<span class='no'>col</span>, <span class='kw'>degrees</span> <span class='kw'>=</span> <span class='fl'>0</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -140,7 +140,7 @@ positive integer i meaning palette()[i].</p></td>
     <tr>
       <th>degrees</th>
       <td><p>Numeric between 0 and 360, denotion the about of degrees the
-colors should be rotated.</p></td>
+colors should be rotated. Now defaults to 0.</p></td>
     </tr>
     </table>
 
@@ -156,10 +156,10 @@ colors should be rotated.</p></td>
  lightness) where the hue of the color will be rotation.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'>
-<span class='fu'><a href='https://rdrr.io/r/graphics/plot.html'>plot</a></span>(<span class='fu'>clr_rotate</span>(<span class='fu'><a href='https://rdrr.io/r/grDevices/palettes.html'>terrain.colors</a></span>(<span class='fl'>10</span>), <span class='kw'>degrees</span> <span class='kw'>=</span> <span class='fl'>90</span>))</div><div class='img'><img src='clr_rotate-1.png' alt='' width='700' height='433' /></div><div class='input'>
-<span class='fu'><a href='https://rdrr.io/r/graphics/plot.html'>plot</a></span>(<span class='fu'>clr_rotate</span>(<span class='fu'><a href='https://rdrr.io/r/grDevices/palettes.html'>terrain.colors</a></span>(<span class='fl'>10</span>), <span class='kw'>degrees</span> <span class='kw'>=</span> <span class='fl'>180</span>))</div><div class='img'><img src='clr_rotate-2.png' alt='' width='700' height='433' /></div><div class='input'>
-<span class='fu'><a href='https://rdrr.io/r/graphics/plot.html'>plot</a></span>(<span class='fu'>clr_rotate</span>(<span class='fu'><a href='https://rdrr.io/r/base/rep.html'>rep</a></span>(<span class='st'>"magenta"</span>, <span class='fl'>11</span>), <span class='kw'>degrees</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/seq.html'>seq</a></span>(<span class='fl'>0</span>, <span class='fl'>360</span>, <span class='kw'>length.out</span> <span class='kw'>=</span>  <span class='fl'>11</span>)))</div><div class='img'><img src='clr_rotate-3.png' alt='' width='700' height='433' /></div></pre>
+    <pre class="examples"><div class='input'><span class='fu'><a href='https://rdrr.io/r/graphics/plot.html'>plot</a></span>(<span class='fu'>clr_rotate</span>(<span class='fu'><a href='https://rdrr.io/r/grDevices/palettes.html'>terrain.colors</a></span>(<span class='fl'>10</span>)))</div><div class='img'><img src='clr_rotate-1.png' alt='' width='700' height='433' /></div><div class='input'>
+<span class='fu'><a href='https://rdrr.io/r/graphics/plot.html'>plot</a></span>(<span class='fu'>clr_rotate</span>(<span class='fu'><a href='https://rdrr.io/r/grDevices/palettes.html'>terrain.colors</a></span>(<span class='fl'>10</span>), <span class='kw'>degrees</span> <span class='kw'>=</span> <span class='fl'>90</span>))</div><div class='img'><img src='clr_rotate-2.png' alt='' width='700' height='433' /></div><div class='input'>
+<span class='fu'><a href='https://rdrr.io/r/graphics/plot.html'>plot</a></span>(<span class='fu'>clr_rotate</span>(<span class='fu'><a href='https://rdrr.io/r/grDevices/palettes.html'>terrain.colors</a></span>(<span class='fl'>10</span>), <span class='kw'>degrees</span> <span class='kw'>=</span> <span class='fl'>180</span>))</div><div class='img'><img src='clr_rotate-3.png' alt='' width='700' height='433' /></div><div class='input'>
+<span class='fu'><a href='https://rdrr.io/r/graphics/plot.html'>plot</a></span>(<span class='fu'>clr_rotate</span>(<span class='fu'><a href='https://rdrr.io/r/base/rep.html'>rep</a></span>(<span class='st'>"magenta"</span>, <span class='fl'>11</span>), <span class='kw'>degrees</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/seq.html'>seq</a></span>(<span class='fl'>0</span>, <span class='fl'>360</span>, <span class='kw'>length.out</span> <span class='kw'>=</span>  <span class='fl'>11</span>)))</div><div class='img'><img src='clr_rotate-4.png' alt='' width='700' height='433' /></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
